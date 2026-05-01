@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-blue: #2563EB;
+  --color-primary-light: #3B82F6;
+  --color-background: #FFFFFF;
+  --color-light-bg: #F9FAFB;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6B7280;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-border: #E5E7EB;
+
+  --shadow-3d: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 5px 15px rgba(0, 0, 0, 0.05);
+  --shadow-3d-hover: 0 30px 50px -12px rgba(0, 0, 0, 0.15), 0 15px 20px -10px rgba(0, 0, 0, 0.08), 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  --animate-float: float 3s ease-in-out infinite;
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+}
+
+:root {
+  --primary-blue: #2563EB;
+  --light-blue: #3B82F6;
+  --background: #FFFFFF;
+  --light-background: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-text-primary antialiased overflow-x-hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom 3D Glass Effect */
+.glass-card {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-3d;
+}
+
+.glass-card:hover {
+  @apply shadow-3d-hover translate-y-[-4px] transition-all duration-300;
+}
+
+/* Blob Backgrounds */
+.blob {
+  @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float;
+}
+
+.blob-blue {
+  @apply bg-primary-blue;
+}
+
+.blob-light {
+  @apply bg-primary-light;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-light-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full hover:bg-text-secondary transition-colors;
+}
